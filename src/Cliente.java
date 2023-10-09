@@ -1,4 +1,4 @@
-public class Supermercado {
+public class Cliente {
 
     int numHilo=0;
     public class Saludo extends Thread {
