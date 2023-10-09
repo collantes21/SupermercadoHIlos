@@ -2,16 +2,27 @@
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Intro with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        // Press Mayús+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        Cliente cliente1 = new Cliente("Cliente 1 " ,
+                new int[]{2,2,1,5,2,3});
+        Cliente cliente2 = new Cliente("Cliente 2 " ,
+                new int[]{1,3,5,1,1});
+        Cliente cliente3 = new Cliente("Cliente 3 " ,
+                new int[]{2,5,3,2,4});
 
-            // Press Mayús+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        long initialTime=System.currentTimeMillis();
+        //System.out.println(initialTime);
+
+        CajeroThread cajero1=new CajeroThread("Cajero 1", cliente1, initialTime);
+        CajeroThread cajero2=new CajeroThread("Cajero 2", cliente2, initialTime);
+        CajeroThread cajero3=new CajeroThread("Cajero 3", cliente3, initialTime);
+
+
+        cajero1.start();
+        cajero2.start();
+        cajero3.start();
+
+        System.out.println(cajero1);
+        System.out.println(cajero2);
     }
 }
